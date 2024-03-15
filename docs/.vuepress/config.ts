@@ -36,7 +36,12 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           { text: 'jx3', link: '/api/jx3/' },
         ],
       },
-      { text: '关于', link: '/about/' },
+      { text: '关于', 
+        link: '/about/',
+        items: [
+          {text: '小本本', link: '/about/5614D6/'}
+        ]
+      },
       {
         text: '收藏',
         link: '/pages/beb6c0bd8a66cea6/',
