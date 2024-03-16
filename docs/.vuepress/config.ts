@@ -30,11 +30,23 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     nav: [
       { text: '首页', link: '/' },
       {
+        text: '文章',
+        items: [
+          {text: '常用开发环境', link: '/doc/d2176f/'},
+          {text: '搭建Typecho博客', link: ' /doc/cfe73c/'},
+          {text: 'Qsign部署', link: '/doc/ea23cd68e375/'},
+        ]
+      },
+      {
         text: 'API',
         link: '/pages/cc3d1f/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
         items: [
-          { text: 'jx3', link: '/api/jx3/' },
+          { text: '剑网三', link: '/api/jx3/' },
         ],
+      },
+      {
+        text: '收藏',
+        link: '/pages/beb6c0bd8a66cea6/',
       },
       { text: '关于', 
         link: '/about/',
@@ -42,18 +54,14 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           {text: '小本本', link: '/about/5614D6/'}
         ]
       },
-      {
-        text: '收藏',
-        link: '/pages/beb6c0bd8a66cea6/',
-      },
     ],
     sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
     logo: '/img/logo.png', // 导航栏logo
-    repo: 'hidewnd/vuepress-theme-vdoing', // 导航栏右侧生成Github链接
+    repo: 'hidewnd/documents', // 导航栏右侧生成Github链接
     searchMaxSuggestions: 10, // 搜索结果显示最大数
     lastUpdated: '上次更新', // 开启更新时间，并配置前缀文字   string | boolean (取值为git提交时间)
     docsDir: 'docs', // 编辑的文件夹
-    // docsBranch: 'master', // 编辑的文件所在分支，默认master。 注意：如果你的分支是main则修改为main
+    docsBranch: 'main', // 编辑的文件所在分支，默认master。 注意：如果你的分支是main则修改为main
     editLinks: true, // 启用编辑
     editLinkText: '帮助我改善此页面',
 
@@ -105,6 +113,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         {iconClass: 'icon-github', title: 'Github', link: 'https://github.com/hidewnd'},
         {iconClass: 'icon-gitee', title: 'Gitee', link: 'https://gitee.com/hidewnd'},
         {iconClass: 'icon-bilibili', title: 'Bilibili', link: 'https://www.bilibili.com/'},
+        {iconClass: 'icon-shuben', title: '阳光沙滩', link: 'https://www.sunofbeach.net/'},
       ],
       customize: [
         {title: 'Github', link: 'https://github.com/hidewnd', name:'github'},
@@ -125,7 +134,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     },
 
     // 自定义hmtl(广告)模块
-    // htmlModules
+    htmlModules
   },
 
   // 注入到页面<head>中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]

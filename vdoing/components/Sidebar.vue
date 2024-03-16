@@ -6,14 +6,23 @@
         <h3>{{ blogger.name }}</h3>
 
         <div class="icons" v-if="blogger.social">
-          <a
-            :href="item.link"
-            :title="item.title"
-            :class="['iconfont', item.iconClass]"
-            v-for="(item, index) in blogger.social.icons"
-            :key="index"
-            target="_blank"
-          ></a>
+          <template v-if="social && social.icons">
+            <a v-for="(item, index) in social.icons"
+              :key="index"
+              :href="item.link"
+              :title="item.title"
+              :class="['iconfont', item.iconClass]"
+              target="_blank"
+            ></a>
+          </template>
+          <template v-if="social && social.customize">
+            <a v-for="(item, index) in social.customize"
+              :key="index"
+              :href="item.link"
+              :title="item.title"
+              target="_blank"
+            >{{ item.name }}</a>
+          </template>
         </div>
         <span v-else>{{ blogger.slogan }}</span>
       </div>
