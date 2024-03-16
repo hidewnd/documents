@@ -33,7 +33,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         text: '文章',
         items: [
           {text: '常用开发环境', link: '/doc/d2176f/'},
-          {text: '搭建Typecho博客', link: ' /doc/cfe73c/'},
+          {text: '搭建Typecho博客', link: '/doc/cfe73c/'},
           {text: 'Qsign部署', link: '/doc/ea23cd68e375/'},
         ]
       },
