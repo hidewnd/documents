@@ -35,7 +35,17 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           {text: '常用开发环境', link: '/doc/d2176f/'},
           {text: '搭建Typecho博客', link: '/doc/cfe73c/'},
           {text: 'Qsign部署', link: '/doc/ea23cd68e375/'},
+          {text: 'Linux常用命令', link: '/doc/9a1424/'},
         ]
+      },
+      {
+        text: '笔记',
+        items: [
+          {text: 'Lua', link: '/notes/a2203b/'},
+          {text: 'JVM', link: '/notes/9a1444/'},
+          {text: '设计模式', link: '/notes/9a1423/'},
+        ]
+
       },
       {
         text: 'API',
