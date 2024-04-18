@@ -51,13 +51,19 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         text: 'API',
         link: '/pages/cc3d1f/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
         items: [
-          { text: '剑网三', link: '/api/jx3/' },
+          // { text: '剑网三', link: '/api/jx3/' },
         ],
       },
       {
-        text: '收藏',
-        link: '/pages/beb6c0bd8a66cea6/',
+        text: '剑网三',
+        items: [
+          {text: '合并大区角色数据处理', link: '/notes/be8ae8726072/'},
+        ]
       },
+      // {
+      //   text: '收藏',
+      //   link: '/pages/beb6c0bd8a66cea6/',
+      // },
       { text: '关于', 
         link: '/about/',
         items: [
