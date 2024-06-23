@@ -58,6 +58,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         text: '剑网三',
         items: [
           {text: '合并大区角色数据处理', link: '/notes/be8ae8726072/'},
+          {text: '剑三网站合集', link: '/notes/b2de82b5/'},
         ]
       },
       // {
