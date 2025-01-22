@@ -35,7 +35,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           { text: "搭建Typecho博客", link: "/doc/cfe73c/" },
           { text: "Qsign部署", link: "/doc/ea23cd68e375/" },
           { text: "Linux常用命令", link: "/doc/9a1424/" },
-          { text: "WebSocket开发", link: "/doc/1fc05331/" },
+          { text: "Java开发聊天机器人", link: "/doc/50219FC/" },
         ],
       },
       {
