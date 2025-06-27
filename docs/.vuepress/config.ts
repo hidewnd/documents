@@ -22,6 +22,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       description: "藏经阁",
     },
   },
+  
   // base: '/', // 默认'/'。如果你想将你的网站部署到如 https://foo.github.io/bar/，那么 base 应该被设置成 "/bar/",（否则页面将失去样式等文件）
   // 主题配置
   themeConfig: {
@@ -35,7 +36,9 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           { text: "搭建Typecho博客", link: "/doc/cfe73c/" },
           { text: "Qsign部署", link: "/doc/ea23cd68e375/" },
           { text: "Linux常用命令", link: "/doc/9a1424/" },
-          { text: "Java开发聊天机器人", link: "/doc/50219FC/" },
+          { text: "Java开发聊天机器人", link: "/doc/50219FC/"},
+          { text: "PVE部署笔记", link: "/doc/08a959be/" },
+          { text: "KingBaseV9部署笔记", link: "/doc/b3f65d/" },
         ],
       },
       {
@@ -57,6 +60,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           { text: "剑三网站合集", link: "/jx3/notes/b2de82b5/" },
           { text: "合并大区角色数据处理", link: "/jx3/notes/be8ae8726072/" },
           { text: "25PT冷龙峰教学笔记", link: "/jx3/notes/16b95fd5cac6/" },
+           { text: "25PT太极宫教学笔记", link: "/jx3/notes/0f6227/" },
         ],
       },
       // {
@@ -124,6 +128,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       link: "https://github.com/hidewnd", // 可选的
     },
     social: {
+      iconfontCssFile: '//at.alicdn.com/t/c/font_4961415_qqbp58c8nn.css',
       icons: [
         {
           iconClass: "icon-github",
@@ -144,6 +149,11 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           iconClass: "icon-shuben",
           title: "阳光沙滩",
           link: "https://www.sunofbeach.net/",
+        },
+        {
+          iconClass: "icon-maomao",
+          title: "二猫子博客",
+          link: "https://www.ermao.net/",
         },
       ],
       customize: [
