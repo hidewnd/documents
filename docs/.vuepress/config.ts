@@ -39,6 +39,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           { text: "Java开发聊天机器人", link: "/doc/50219FC/"},
           { text: "PVE部署笔记", link: "/doc/08a959be/" },
           { text: "KingBaseV9部署笔记", link: "/doc/b3f65d/" },
+          { text: "常用提示词", link: "/doc/ec636648/" },
         ],
       },
       {
