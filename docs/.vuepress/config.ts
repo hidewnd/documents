@@ -32,36 +32,36 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       {
         text: "文章",
         items: [
-          { text: "常用开发环境", link: "/doc/d2176f/" },
-          { text: "搭建Typecho博客", link: "/doc/cfe73c/" },
-          { text: "Qsign部署", link: "/doc/ea23cd68e375/" },
-          { text: "Linux常用命令", link: "/doc/9a1424/" },
-          { text: "Java开发聊天机器人", link: "/doc/50219FC/"},
-          { text: "PVE部署笔记", link: "/doc/08a959be/" },
-          { text: "KingBaseV9部署笔记", link: "/doc/b3f65d/" },
-          { text: "常用提示词", link: "/doc/ec636648/" },
+          { text: "常用开发环境", link: "/doc/d0001/" },
+          { text: "常用提示词", link: "/doc/d0002/" },
+          { text: "常用Linux命令", link: "/doc/d0003/" },
+          { text: "Java开发聊天机器人", link: "/doc/d0004/"},
         ],
       },
       {
         text: "笔记",
         items: [
-          { text: "Lua", link: "/notes/a2203b/" },
-          { text: "JVM", link: "/notes/9a1444/" },
-          { text: "设计模式", link: "/notes/9a1423/" },
+          { text: "[学习笔记]Lua", link: "/notes/n0001/" },
+          { text: "[学习笔记]JVM", link: "/notes/n0002/" },
+          { text: "[学习笔记]设计模式", link: "/notes/n0003/" },
+          { text: "[部署笔记]搭建Typecho博客", link: "/notes/n0004/" },
+          { text: "[部署笔记]部署Qsign签名机", link: "/notes/n0005/" },
+          { text: "[部署笔记]安装PVE系统", link: "/notes/n0006/" },
+          { text: "[部署笔记]部署KingBaseV9电科金仓", link: "/notes/n0007/" },
         ],
       },
       {
         text: "API",
         // link: '/pages/cc3d1f/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
-        items: [{ text: "技艺成本", link: "/jx3/api/cbe4400ac0dc/" }],
+        items: [{ text: "技艺成本", link: "/jx3/api/a0001/" }],
       },
       {
         text: "剑网三",
         items: [
-          { text: "剑三网站合集", link: "/jx3/notes/b2de82b5/" },
-          { text: "合并大区角色数据处理", link: "/jx3/notes/be8ae8726072/" },
-          { text: "25PT冷龙峰教学笔记", link: "/jx3/notes/16b95fd5cac6/" },
-           { text: "25PT太极宫教学笔记", link: "/jx3/notes/0f6227/" },
+          { text: "剑三网站合集", link: "/jx3/j0001/" },
+          { text: "合并大区角色数据处理", link: "/jx3/j0002/" },
+          { text: "25PT冷龙峰教学笔记", link: "/jx3/j0003/" },
+           { text: "25PT太极宫教学笔记", link: "/jx3/j0004/" },
         ],
       },
       // {
@@ -71,7 +71,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       {
         text: "关于",
         link: "/about/",
-        items: [{ text: "小本本", link: "/about/5614D6/" }],
+        items: [{ text: "小本本", link: "/about/a0001/" }],
       },
     ],
     sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
