@@ -7,7 +7,7 @@
 
 
 # clone the project
-git clone https://github.com/xugaoyi/vuepress-theme-vdoing.git
+git clone https://github.com/hidewnd/documents.git
 
 # enter the project directory
 cd vuepress-theme-vdoing
