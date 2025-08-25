@@ -36,6 +36,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           { text: "常用提示词", link: "/doc/d0002/" },
           { text: "常用Linux命令", link: "/doc/d0003/" },
           { text: "Java开发聊天机器人", link: "/doc/d0004/"},
+          { text: "word模板生成实现方案", link: "/doc/d0005/"},
         ],
       },
       {
@@ -71,7 +72,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       {
         text: "关于",
         link: "/about/",
-        items: [{ text: "小本本", link: "/about/a0001/" }],
+        items: [],
       },
     ],
     sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
