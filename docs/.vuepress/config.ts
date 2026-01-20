@@ -62,7 +62,8 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           { text: "剑三网站合集", link: "/jx3/j0001/" },
           { text: "合并大区角色数据处理", link: "/jx3/j0002/" },
           { text: "25PT冷龙峰教学笔记", link: "/jx3/j0003/" },
-           { text: "25PT太极宫教学笔记", link: "/jx3/j0004/" },
+          { text: "25PT太极宫教学笔记", link: "/jx3/j0004/" },
+          { text: "25PT弓月城教学笔记", link: "/jx3/j0005/" },
         ],
       },
       // {
