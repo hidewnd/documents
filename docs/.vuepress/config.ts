@@ -50,7 +50,6 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           { text: "[学习笔记]Lua", link: "/notes/n0001/" },
           { text: "[学习笔记]JVM", link: "/notes/n0002/" },
           { text: "[学习笔记]设计模式", link: "/notes/n0003/" },
-          { text: "[学习笔记]Linux笔记", link: "/notes/n0008/" },
           { text: "[部署笔记]搭建Typecho博客", link: "/notes/n0004/" },
           { text: "[部署笔记]部署Qsign签名机", link: "/notes/n0005/" },
           { text: "[部署笔记]安装PVE系统", link: "/notes/n0006/" },
