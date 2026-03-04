@@ -35,6 +35,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           { text: "常用开发环境", link: "/doc/d0001/" },
           { text: "常用提示词", link: "/doc/d0002/" },
           { text: "常用Linux命令", link: "/doc/d0003/" },
+          { text: "常用Git规范及命令", link: "/doc/d0011/" },
           { text: "Java开发聊天机器人", link: "/doc/d0004/"},
           { text: "word模板生成实现方案", link: "/doc/d0005/"},
           { text: "基于Go写一个极简的通讯demo", link: "/doc/d0006/"},
