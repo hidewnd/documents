@@ -23,8 +23,8 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     },
   },
 
-  // 将 .mdc 视为页面来源，与 .md 一同参与构建与展示
-  patterns: ["**/*.md", "**/*.vue", "**/*.mdc"],
+  // 仅 .md/.vue 参与 patterns；.mdc 由 plugins/mdc-pages 通过 additionalPages 注册，避免 webpack 无 .mdc loader 导致构建失败
+  patterns: ["**/*.md", "**/*.vue"],
   
   // base: '/', // 默认'/'。如果你想将你的网站部署到如 https://foo.github.io/bar/，那么 base 应该被设置成 "/bar/",（否则页面将失去样式等文件）
   // 主题配置
