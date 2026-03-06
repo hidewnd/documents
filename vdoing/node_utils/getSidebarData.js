@@ -23,7 +23,8 @@ function createSidebarData(sourceDir, collapsable) {
       // sidebarData[`/${path.basename(toc)}/`] = sidebarArr
 
     } else {
-      const sidebarObj = mapTocToSidebar(toc, collapsable);
+      const basePath = '/' + path.basename(toc) + '/';
+      const sidebarObj = mapTocToSidebar(toc, collapsable, '', basePath);
       if (!sidebarObj.sidebar.length) {
         log(chalk.yellow(`warning: 该目录 "${toc}" 内部没有任何文件或文件序号出错，将忽略生成对应侧边栏`))
         return;
@@ -108,7 +109,7 @@ function mapTocToPostSidebar(root) {
  * @param {String} prefix
  */
 
-function mapTocToSidebar(root, collapsable, prefix = '') {
+function mapTocToSidebar(root, collapsable, prefix = '', basePath = '') {
   let sidebar = []; // 结构化文章侧边栏数据
   const files = fs.readdirSync(root); // 读取目录（文件和文件夹）,返回数组
 
@@ -150,7 +151,7 @@ function mapTocToSidebar(root, collapsable, prefix = '') {
       sidebar[order] = {
         title,
         collapsable, // 是否可折叠，默认true
-        children: mapTocToSidebar(file, collapsable, prefix + filename + '/').sidebar // 子栏路径添加前缀
+        children: mapTocToSidebar(file, collapsable, prefix + filename + '/', basePath).sidebar // 子栏路径添加前缀
       }
     } else { // 是文件
       if (type !== 'md' && type !== 'mdc') {
@@ -159,7 +160,15 @@ function mapTocToSidebar(root, collapsable, prefix = '') {
       }
       const contentStr = fs.readFileSync(file, 'utf8') // 读取md/mdc文件内容，返回字符串
       const { data } = matter(contentStr, {}) // 解析出front matter数据
-      const { permalink = '', titleTag = '' } = data || {}
+      let { permalink = '', titleTag = '' } = data || {}
+
+      // .mdc 页面由 additionalPages 注册，路由为 /basePath/xxx/ 无 .mdc 后缀；侧边栏 path/permalink 需与之一致
+      const pathKey = prefix + filename;
+      if (type === 'mdc') {
+        if (!permalink) {
+          permalink = basePath + pathKey.replace(/\.mdc$/, '') + '/';
+        }
+      }
 
       // 目录页对应的永久链接，用于给面包屑提供链接
       const { pageComponent } = data
@@ -170,7 +179,8 @@ function mapTocToSidebar(root, collapsable, prefix = '') {
       if (data.title) {
         title = data.title
       }
-      const item = [prefix + filename, title, permalink]
+      const sidebarPath = type === 'mdc' ? pathKey.replace(/\.mdc$/, '') + '/' : pathKey;
+      const item = [sidebarPath, title, permalink]
       if (titleTag) item.push(titleTag)
       sidebar[order] = item;  // [<路径>, <标题>, <永久链接>, <?标题标签>]
 

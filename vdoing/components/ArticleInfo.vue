@@ -87,11 +87,15 @@ export default {
   methods: {
     getPageInfo() {
       const pageInfo = this.$page
-      const { relativePath } = pageInfo
+      if (!pageInfo) return
+      // additionalPages 注册的页面（如 .mdc）可能没有 relativePath，从 path 推导
+      const relativePath = pageInfo.relativePath != null
+        ? pageInfo.relativePath
+        : (pageInfo.path || '').replace(/^\/|\/$/g, '')
       const { sidebar } = this.$themeConfig
 
       // 分类采用解析文件夹地址名称的方式 (即使关闭分类功能也可以正确跳转目录页)
-      const relativePathArr = relativePath.split('/')
+      const relativePathArr = relativePath ? relativePath.split('/') : []
 
       // const classifyArr = relativePathArr[0].split('.')
 
@@ -112,7 +116,8 @@ export default {
 
       const cataloguePermalink = sidebar && sidebar.catalogue ? sidebar.catalogue[this.classify1] : ''// 目录页永久链接
       const author = this.$frontmatter.author || this.$themeConfig.author // 作者
-      let date = (pageInfo.frontmatter.date || '').split(' ')[0] // 文章创建时间
+      const dateStr = (pageInfo.frontmatter && pageInfo.frontmatter.date) || ''
+      let date = dateStr.split(' ')[0] // 文章创建时间
 
       // 获取页面frontmatter的分类（碎片化文章使用）
       const { categories } = this.$frontmatter
