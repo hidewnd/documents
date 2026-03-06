@@ -6,7 +6,7 @@ alwaysApply: false
 
 # Java 21 特性规范
 
-本规则补充 Java 21 版本特性使用方式与注意事项，通用语言规范见 `java-language-specification.mdc`
+本规则补充 Java 21 版本特性使用方式与注意事项，通用语言规范见 `8.java-language-specification.mdc`
 
 ## Record 类
 - 使用 Record 表达不可变数据传输对象
