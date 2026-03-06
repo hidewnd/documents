@@ -139,6 +139,8 @@ export interface VdoingThemeConfig extends NoSidebar4DefaultThemeConfig {
       iconClass: string,
       title: string,
       link: string,
+      avatar?: string,
+      desc?: string,
     }[],
     customize: {
       title: string,

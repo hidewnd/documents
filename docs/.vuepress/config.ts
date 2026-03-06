@@ -22,6 +22,9 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       description: "藏经阁",
     },
   },
+
+  // 将 .mdc 视为页面来源，与 .md 一同参与构建与展示
+  patterns: ["**/*.md", "**/*.vue", "**/*.mdc"],
   
   // base: '/', // 默认'/'。如果你想将你的网站部署到如 https://foo.github.io/bar/，那么 base 应该被设置成 "/bar/",（否则页面将失去样式等文件）
   // 主题配置
@@ -57,10 +60,20 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           { text: "[部署笔记]部署KingBaseV9电科金仓", link: "/notes/n0007/" },
         ],
       },
+      
       {
         text: "API",
         // link: '/pages/cc3d1f/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
         items: [{ text: "技艺成本", link: "/jx3/api/a0001/" }],
+      },
+      {
+        text: "Cursor",
+        link: "/Cursor/",
+        items: [
+          { text: "Rules", link: "/Cursor/Rules/" },
+          { text: "Setting", link: "/Cursor/Setting/" },
+          { text: "Skill", link: "/Cursor/Skill/" },
+        ],
       },
       {
         text: "剑网三",
@@ -160,8 +173,8 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           link: "https://www.sunofbeach.net/",
         },
         {
-          iconClass: "icon-maomao",
-          title: "二猫子博客",
+          iconClass: "icon-ermao",
+          title: "二猫子",
           link: "https://www.ermao.net/",
         },
       ],
@@ -279,6 +292,8 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         },
       },
     ],
+    // 将 07.Cursor/01.Rules 下的 .mdc 注册为页面，避免 404
+    [resolve(__dirname, "plugins/mdc-pages"), {}],
   ],
 
   markdown: {

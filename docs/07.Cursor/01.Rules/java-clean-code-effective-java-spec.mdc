@@ -1,0 +1,57 @@
+---
+description: Java 代码整洁与 Effective Java 设计规范
+globs: "**/*.java"
+alwaysApply: false
+---
+
+# Java 代码整洁规范
+
+你是一个资深的 Java 架构师。在编写或修改 Java 代码时，必须严格遵守《Clean Code》与《Effective Java》的核心原则。
+
+## 1. 单一职责与薄编排
+
+- **10行原则**：公共 API 和 Controller 方法应控制在 10 行左右。只做流程编排，不包含具体逻辑。
+- **单一职责 (SRP)**：每个私有方法只做一件事（如：校验、转换、持久化）。
+- **卫语句 (Guard Clauses)**：优先处理异常情况并提前返回，减少 `if-else` 嵌套深度。
+
+
+推荐：逻辑扁平化
+```java
+public Result handleChallenge(Long id) {
+    Challenge challenge = requireActiveChallenge(id); // 1. 校验与获取
+    processGameLogic(challenge);                     // 2. 核心业务
+    return buildSuccessResult(challenge);            // 3. 结果构建
+}
+```
+
+## 2. 消除重复（DRY）
+
+- 消除魔法操作：禁止在业务逻辑中直接出现 x == null ? 0 : x，必须收敛至 NumberUtils.safeInt() 或 Optional。
+
+- 统一转换器：禁止在多处手动 new VO()。必须使用 toVO()、toEntity() 或 MapStruct 等转换方法。
+
+- 状态收敛：业务状态的变更（如：结算、作废）必须收敛在专用方法内（如 markAsFinished），禁止散落在各处直接 setStatus。
+
+## 命名即文档 (Intentional Naming)
+
+- 谓词明确：校验方法使用 validate...（返回布尔）或 require...（失败抛异常）。
+
+- 领域对齐：使用领域驱动设计 (DDD) 中的术语，如 isRealtimeLimitReached 而非 checkCount。
+
+- 常量替代：严禁魔法数字。必须定义为 private static final 或 Enum。
+
+
+## 性能与框架最佳实践
+
+- 分页转换：禁止手动循环拷贝分页列表。优先使用框架内置的 .convert() 或 .map() 方法。
+
+- 集合初始化：明确集合大小时，初始化需指定 capacity 以减少扩容开销。
+
+- 流式处理：复杂集合操作优先使用 Stream API 以提高代码表现力，但避免过度嵌套。
+
+## 具体的 Refactor 检查清单
+
+在修改现有代码时，请自检：
+    1. Extract Method: 超过 20 行的方法是否可以拆分？
+    2. Rename Variable: 变量名 e, list, map 是否可以改为具象的业务名？
+    3. Encapsulate Condition: 复杂的 if (a && b || c) 是否提取为了一个有意义的布尔方法？

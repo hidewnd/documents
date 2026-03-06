@@ -153,11 +153,11 @@ function mapTocToSidebar(root, collapsable, prefix = '') {
         children: mapTocToSidebar(file, collapsable, prefix + filename + '/').sidebar // 子栏路径添加前缀
       }
     } else { // 是文件
-      if (type !== 'md') {
-        log(chalk.yellow(`warning: 该文件 "${file}" 非.md格式文件，不支持该文件类型`))
+      if (type !== 'md' && type !== 'mdc') {
+        log(chalk.yellow(`warning: 该文件 "${file}" 非.md/.mdc格式文件，不支持该文件类型`))
         return;
       }
-      const contentStr = fs.readFileSync(file, 'utf8') // 读取md文件内容，返回字符串
+      const contentStr = fs.readFileSync(file, 'utf8') // 读取md/mdc文件内容，返回字符串
       const { data } = matter(contentStr, {}) // 解析出front matter数据
       const { permalink = '', titleTag = '' } = data || {}
 

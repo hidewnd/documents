@@ -1,0 +1,46 @@
+---
+description: OpenAPI 与接口文档规范
+alwaysApply: false
+---
+
+# OpenAPI 与接口文档规范
+
+## 文档生成方式
+
+- 使用 OpenAPI 相关依赖自动生成接口文档
+- 通过注解补充接口说明、参数说明与返回说明
+
+## 控制器注解规范
+
+- 在 Controller 类或方法上使用 `@Tag`、`@Operation` 标注接口分组与说明
+- 对重要参数使用 `@Parameter` 或 VO 上的 `@Schema` 补充描述
+
+```java
+@Tag(name = "用户管理")
+@RestController
+@RequestMapping("/users")
+public class UserController {
+
+    @Operation(summary = "创建用户")
+    @PostMapping
+    public Result<Void> createUser(@RequestBody @Valid UserCreateReqVO reqVO) {
+        // 业务处理
+    }
+}
+```
+
+## 模型说明规范
+
+- VO 与 DTO 类在类级与字段级使用 `@Schema` 注解描述含义
+- 字段描述与数据库字段注释和业务说明保持一致
+
+## 文档分组与安全
+
+- 按业务域或模块对接口进行分组展示
+- 在文档中配置统一的认证方式示例，例如 Header 中的 Token 字段
+
+## 文档维护要求
+
+- 新增或修改接口时同步更新注解与文档
+- 定期检查文档与实际接口行为是否一致
+

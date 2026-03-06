@@ -1,0 +1,50 @@
+---
+description: Bean 校验与参数校验规范
+globs: "**/controller/**/*.java,**/vo/**/*.java"
+alwaysApply: false
+---
+
+# Bean 校验与参数校验规范
+
+## 校验框架与注解
+
+- 统一使用 Bean Validation 标准注解进行参数校验
+- 常用注解包括 `@NotNull`、`@NotBlank`、`@Size`、`@Min`、`@Max` 等
+- 复杂规则使用自定义约束注解与校验器实现
+
+## 控制器入参校验
+
+- Controller 层入参对象统一使用 VO 或 DTO 类型
+- 在方法参数上使用 `@Valid` 或 `@Validated` 触发校验
+
+```java
+@PostMapping("/users")
+public Result<Void> createUser(@RequestBody @Valid UserCreateReqVO reqVO) {
+    // 业务处理
+}
+```
+
+## 校验分组
+
+- 对创建、更新等不同场景使用分组校验
+- 在 VO 中通过 `groups` 属性标记场景
+
+```java
+public interface CreateGroup {}
+
+public interface UpdateGroup {}
+
+@NotNull(groups = UpdateGroup.class)
+private Long id;
+```
+
+## 错误信息与国际化
+
+- 校验错误消息统一在注解或消息文件中维护
+- 对外错误响应通过统一异常处理器转换为统一返回体结构
+
+## 服务层防御性校验
+
+- 对关键服务接口在应用层或领域层增加必要的防御性校验
+- 对来自外部系统或不可信数据源的参数在入口处进行严格校验
+

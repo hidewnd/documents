@@ -1,0 +1,80 @@
+---
+description: Java 实体与 VO 设计和注释规范（@Schema 与状态常量）
+globs: "**/domain/**/*.java,**/vo/**/*.java"
+alwaysApply: false
+---
+
+# Java 实体与 VO 规范
+
+## 1. 实体类注解规范
+
+- **类级注解**：实体类使用 `@TableName` 指定表名，使用 `@Schema(description = "表说明")` 与表 COMMENT 一致
+- **字段级注解**：字段使用 `@Schema(description = "与表字段 COMMENT 一致")`，含可选项时与 SQL 注释保持同一格式
+- **主键字段**：使用 `@TableId` 标注主键字段，与数据库主键定义一致
+
+```java
+@Data
+@TableName("sys_user")
+@Schema(description = "用户信息表")
+public class SysUser extends BaseEntity {
+
+    @Schema(description = "用户 ID")
+    @TableId
+    private Long userId;
+
+    @Schema(description = "帐号状态(0:正常|1:停用)")
+    private String status;
+}
+```
+
+## 2. 状态与类型常量
+
+- **可选项字段常量化**：对状态、类型等枚举字段在实体类或独立常量类中声明 `public static final` 常量
+- **命名约定**：使用大写下划线形式，如 `STATUS_NORMAL`、`STATUS_DISABLE`
+- **文案一致性**：常量注释与 SQL 注释及 `@Schema` 描述保持一致
+
+```java
+@Data
+@TableName("sys_user")
+@Schema(description = "用户信息表")
+public class SysUser extends BaseEntity {
+
+    /** 帐号状态 正常 */
+    public static final String STATUS_NORMAL = "0";
+
+    /** 帐号状态 停用 */
+    public static final String STATUS_DISABLE = "1";
+
+    @Schema(description = "帐号状态(0:正常|1:停用)")
+    private String status;
+}
+```
+
+## 3. VO 设计规范
+
+- **职责划分**：实体类用于持久化，VO 用于接口入参与出参，两者字段可以重叠但职责不要混用
+- **注解使用**：VO 不绑定持久化注解，主要使用 `@Schema` 与校验注解表达接口契约
+- **转换方式**：通过 MapStruct 或装配器类实现实体与 VO 的双向转换
+
+```java
+@Data
+@Schema(description = "用户信息响应 VO")
+public class UserRespVO {
+
+    @Schema(description = "用户 ID")
+    private Long userId;
+
+    @Schema(description = "用户昵称")
+    private String nickname;
+
+    @Schema(description = "帐号状态(0:正常|1:停用)")
+    private String status;
+}
+```
+
+## 4. 文案与格式一致性
+
+- **字段文本一致**：SQL COMMENT、实体 `@Schema`、VO `@Schema` 描述优先保持完全一致
+- **可选项格式一致**：统一使用 `说明(0:含义一|1:含义二)` 格式，避免同一字段在多处出现不同写法
+- **约定小结**：状态与类型字段在数据库注释、实体注解与常量定义间保持一一对应关系
+

@@ -1,0 +1,46 @@
+---
+description: Spring Boot 分层架构与包结构规范
+alwaysApply: false
+---
+
+# Spring Boot 分层与包结构规范
+
+## 分层原则
+
+- **表现层**：处理 HTTP 请求与响应，仅做协议适配和入参出参转换
+- **应用层**：编排业务用例流程，组合领域服务与基础设施能力
+- **领域层**：承载核心业务模型与业务规则，包含领域实体、值对象、领域服务
+- **基础设施层**：实现持久化、远程调用、消息队列、缓存等技术细节
+
+## 推荐包结构
+
+- `com.example.project.interfaces`：对外接口层
+  - `controller`：REST 或 RPC 入口
+  - `dto`、`vo`：入参与出参对象
+- `com.example.project.application`：应用服务层
+  - `service`：应用服务类
+  - `assembler`：对象装配与转换
+- `com.example.project.domain`：领域层
+  - `model`：聚合根、实体、值对象
+  - `service`：领域服务
+  - `repository`：领域仓储接口
+- `com.example.project.infrastructure`：基础设施层
+  - `repository`：仓储实现与数据访问实现
+  - `remote`：远程服务调用适配
+  - `mq`：消息生产与消费实现
+  - `config`：基础设施相关配置
+
+## 依赖方向约束
+
+- 表现层只依赖应用层与接口层对象，不直接依赖基础设施实现
+- 应用层依赖领域层与基础设施抽象接口
+- 领域层仅依赖自身与向下的基础设施抽象接口
+- 基础设施层可以依赖领域层的抽象与模型，不反向依赖应用层与表现层
+
+## 代码组织约定
+
+- 同一业务域聚合到同一子包中，避免跨域耦合
+- Controller 命名以 `*Controller` 结尾，应用服务以 `*AppService` 或 `*Service` 结尾
+- 领域服务以 `*DomainService` 结尾，仓储接口以 `*Repository` 结尾
+- 禁止在 Controller 中直接编写数据库访问或远程调用逻辑
+
