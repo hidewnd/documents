@@ -60,19 +60,27 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           { text: "[部署笔记]部署KingBaseV9电科金仓", link: "/notes/n0007/" },
         ],
       },
-      
       {
         text: "API",
         // link: '/pages/cc3d1f/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
         items: [{ text: "技艺成本", link: "/jx3/api/a0001/" }],
       },
       {
-        text: "Cursor",
-        link: "/Cursor/",
+        text: "Vibe Coding",
+        link: "/vibe-coding/cursor",
         items: [
-          { text: "Rules", link: "/Cursor/Rules/" },
-          { text: "Setting", link: "/Cursor/Setting/" },
-          { text: "Skill", link: "/Cursor/Skill/" },
+          { 
+            text: "Cursor",
+            link: "/vibe-coding/cursor/"
+          },
+          { 
+            text: "Claude Code",
+            link: "/vibe-coding/claude-code/"
+          },
+          { 
+            text: "OpenClaw",
+            link: "/vibe-coding/openclaw/"
+          }
         ],
       },
       {
@@ -177,10 +185,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           title: "二猫子",
           link: "https://www.ermao.net/",
         },
-      ],
-      customize: [
-        { title: "Github", link: "https://github.com/hidewnd", name: "github" },
-      ],
+      ]
     },
     // 页脚信息 博客版权信息、备案信息等，支持a标签或换行标签</br>
     footer: {
