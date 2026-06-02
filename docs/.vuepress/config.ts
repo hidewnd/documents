@@ -91,6 +91,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           { text: "25PT冷龙峰教学笔记", link: "/jx3/j0003/" },
           { text: "25PT太极宫教学笔记", link: "/jx3/j0004/" },
           { text: "25PT弓月城教学笔记", link: "/jx3/j0005/" },
+          { text: "25PT阆风悬城教学笔记", link: "/jx3/j0006/" },
         ],
       },
       // {
